@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'api',
     'babybuddy',
     'core',
+    'health',
     'dashboard',
     'reports',
 
