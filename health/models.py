@@ -24,7 +24,7 @@ class Medication(models.Model):
         verbose_name_plural = _('Medications')
 
     def __str__(self):
-        return str(_('Medication'))
+        return '{}'.format(self.name)
 
 
 class MedicationAdministration(models.Model):
@@ -166,4 +166,4 @@ class MedicationEvent(models.Model):
         verbose_name_plural = _('Medication events')
 
     def __str__(self):
-        return str(_('Medication event'))
+        return '{} ({})'.format(self.medication.name, self.recurring_type)
