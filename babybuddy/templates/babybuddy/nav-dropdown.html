@@ -153,6 +153,33 @@
                     </div>
                 </li>
 
+            <li class="nav-item dropdown">
+                    <a id="nav-activity-menu-link"
+                       class="nav-link dropdown-toggle"
+                       href="#"
+                       data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false"><i class="icon icon-health" aria-hidden="true"></i>
+                        {% trans "Health" %}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="nav-health-menu-link">
+
+                        {% if perms.health.view_medication %}
+                            <a class="dropdown-item{% if request.path == '/medications/' %} active{% endif %}"
+                               href="{% url 'health:medication-list' %}"><i class="icon icon-medication" aria-hidden="true"></i>
+                                {% trans "Medications" %}
+                            </a>
+                        {% endif %}
+                        {% if perms.health.add_medication %}
+                            <a class="dropdown-item pl-5{% if request.path == '/medications/add/' %} active{% endif %}"
+                               href="{% url 'health:medication-add' %}"><i class="icon icon-add" aria-hidden="true"></i>
+                                {% trans "Medication" %}
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a id="nav-activity-menu-link"
                        class="nav-link dropdown-toggle"

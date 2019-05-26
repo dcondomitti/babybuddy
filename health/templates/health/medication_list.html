@@ -1,0 +1,61 @@
+{% extends 'babybuddy/page.html' %}
+{% load bootstrap i18n widget_tweaks %}
+
+{% block title %}{% trans "Medications" %}{% endblock %}
+
+{% block breadcrumbs %}
+    <li class="breadcrumb-item active" aria-current="page">{% trans "Medications" %}</li>
+{% endblock %}
+
+{% block content %}
+    <h1>{% trans "Medications" %}</h1>
+    {% include 'babybuddy/filter.html' %}
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Dose type" %}</th>
+                    <th class="text-center">{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medication in object_list %}
+                    <tr>
+                        <th scope="row">{{ medication.name }}</th>
+                        <td>{{ medication.dose_type }}</td>
+                        <td class="text-center">
+                            <div class="btn-group btn-group-sm" role="group" aria-label="{% trans "Actions" %}">
+
+                                {% if perms.health.change_medication %}
+                                    <a href="{% url 'health:medication-update' medication.id %}" class="btn btn-primary">
+                                        <i class="icon icon-update" aria-hidden="true"></i>
+                                    </a>
+                                {% endif %}
+
+                                {% if perms.health.delete_medication %}
+                                    <a href="{% url 'health:medication-delete' medication.id %}" class="btn btn-danger">
+                                        <i class="icon icon-delete" aria-hidden="true"></i>
+                                    </a>
+                                {% endif %}
+
+                            </div>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th colspan="6">{% trans "No medications found." %}</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% include 'babybuddy/paginator.html' %}
+
+    {% if perms.health.add_medication %}
+        <a href="{% url 'health:medication-add' %}" class="btn btn-sm btn-success">
+            <i class="icon icon-medication" aria-hidden="true"></i> {% trans "Add a Medication" %}
+        </a>
+    {% endif %}
+
+{% endblock %}

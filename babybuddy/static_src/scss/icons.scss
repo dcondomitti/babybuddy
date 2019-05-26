@@ -64,12 +64,20 @@
     @extend .fa-bar-chart-o;
 }
 
+.icon-health {
+    @extend .fa-heart;
+}
+
 .icon-list {
     @extend .fa-list;
 }
 
 .icon-lock {
     @extend .fa-lock;
+}
+
+.icon-medication {
+    @extend .fa-medkit;
 }
 
 .icon-note {
