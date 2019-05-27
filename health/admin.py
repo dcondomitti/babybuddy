@@ -6,10 +6,9 @@ from health import models
 
 @admin.register(models.Medication)
 class MedicationAdmin(admin.ModelAdmin):
-    list_display = ('name', 'dose_type')
-    list_filter = ('name', 'dose_type')
-    search_fields = ('name', 'dose_type')
-    fields = ['name', 'dose_type']
+    list_display = ('name', 'dose_type', 'notes')
+    search_fields = ('name', 'dose_type', 'notes')
+    fields = ['name', 'dose_type', 'notes']
 
 
 @admin.register(models.MedicationAdministration)

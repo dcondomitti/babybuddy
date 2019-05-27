@@ -7,4 +7,4 @@ from health import models
 class MedicationForm(forms.ModelForm):
     class Meta:
         model = models.Medication
-        fields = ['name', 'dose_type']
+        fields = ['name', 'dose_type', 'notes']

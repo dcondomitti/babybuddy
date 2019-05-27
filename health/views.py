@@ -25,7 +25,7 @@ class MedicationAdd(CoreAddView):
 class MedicationUpdate(CoreUpdateView):
     model = models.Medication
     permission_required = ('health.change_medication',)
-    fields = ['name', 'dose_type']
+    fields = ['name', 'dose_type', 'notes']
     success_url = reverse_lazy('health:medication-list')
 
 

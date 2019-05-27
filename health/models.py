@@ -14,6 +14,10 @@ class Medication(models.Model):
         max_length=255,
         verbose_name=_('Dose type')
     )
+    notes = models.TextField(
+        blank=True,
+        verbose_name=_('Notes')
+    )
 
     objects = models.Manager()
 

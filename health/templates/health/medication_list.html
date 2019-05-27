@@ -16,6 +16,7 @@
                 <tr>
                     <th>{% trans "Name" %}</th>
                     <th>{% trans "Dose type" %}</th>
+                    <th>{% trans "Notes" %}</th>
                     <th class="text-center">{% trans "Actions" %}</th>
                 </tr>
             </thead>
@@ -24,6 +25,7 @@
                     <tr>
                         <th scope="row">{{ medication.name }}</th>
                         <td>{{ medication.dose_type }}</td>
+                        <td>{{ medication.notes }}</td>
                         <td class="text-center">
                             <div class="btn-group btn-group-sm" role="group" aria-label="{% trans "Actions" %}">
 
