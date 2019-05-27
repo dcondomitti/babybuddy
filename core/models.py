@@ -326,6 +326,8 @@ class Sleep(models.Model):
         validate_unique_period(Sleep.objects.filter(child=self.child), self)
 
 
+# TODO: Migrate this model to "health" app.
+# https://code.djangoproject.com/ticket/24686
 class Temperature(models.Model):
     model_name = 'temperature'
     child = models.ForeignKey(
@@ -498,6 +500,8 @@ class TummyTime(models.Model):
             TummyTime.objects.filter(child=self.child), self)
 
 
+# TODO: Migrate this model to "health" app.
+# https://code.djangoproject.com/ticket/24686
 class Weight(models.Model):
     model_name = 'weight'
     child = models.ForeignKey(
