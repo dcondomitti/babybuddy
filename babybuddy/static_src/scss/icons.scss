@@ -1,7 +1,13 @@
-@import '../../../node_modules/font-awesome/scss/font-awesome';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/regular';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/solid';
 
 .icon {
-    @extend .fa;
+    @extend .fas;
+}
+
+.icon-r {
+    @extend .far;
 }
 
 .icon-2x {
@@ -33,19 +39,19 @@
 }
 
 .icon-child {
-    @extend .fa-child;
+    @extend .fa-baby;
 }
 
 .icon-dashboard {
-    @extend .fa-tachometer;
+    @extend .fa-tachometer-alt;
 }
 
 .icon-delete {
-    @extend .fa-trash-o;
+    @extend .fa-trash-alt;
 }
 
 .icon-diaperchange {
-    @extend .fa-trash;
+    @extend .fa-biohazard;
 }
 
 .icon-envelope {
@@ -53,15 +59,15 @@
 }
 
 .icon-false {
-    @extend .fa-times-circle-o;
+    @extend .fa-times-circle;
 }
 
 .icon-feeding {
-    @extend .fa-spoon;
+    @extend .fa-utensil-spoon;
 }
 
 .icon-graph {
-    @extend .fa-bar-chart-o;
+    @extend .fa-chart-bar;
 }
 
 .icon-health {
@@ -77,7 +83,7 @@
 }
 
 .icon-medication {
-    @extend .fa-medkit;
+    @extend .fa-pills;
 }
 
 .icon-note {
@@ -85,11 +91,11 @@
 }
 
 .icon-refresh {
-    @extend .fa-refresh;
+    @extend .fa-sync-alt;
 }
 
 .icon-sad {
-    @extend .fa-frown-o;
+    @extend .fa-frown;
 }
 
 .icon-sleep {
@@ -97,7 +103,7 @@
 }
 
 .icon-source {
-    @extend .fa-code-fork;
+    @extend .fa-code-branch;
 }
 
 .icon-stop {
@@ -109,19 +115,19 @@
 }
 
 .icon-timer {
-    @extend .fa-clock-o;
+    @extend .fa-clock;
 }
 
 .icon-true {
-    @extend .fa-check-circle-o;
+    @extend .fa-check-circle;
 }
 
 .icon-tummytime {
-    @extend .fa-smile-o;
+    @extend .fa-grin-squint-tears;
 }
 
 .icon-update {
-    @extend .fa-pencil;
+    @extend .fa-pencil-alt;
 }
 
 .icon-user {
@@ -129,5 +135,5 @@
 }
 
 .icon-weight {
-    @extend .fa-balance-scale;
+    @extend .fa-weight;
 }

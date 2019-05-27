@@ -14,7 +14,7 @@
                 type="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
-                aria-expanded="false"><i class="icon icon-graph" aria-hidden="true"></i></button>
+                aria-expanded="false"><i class="icon-r icon-graph" aria-hidden="true"></i></button>
         <div class="dropdown-menu" aria-labelledby="reports-dropdown">
             <a class="dropdown-item" href="{% url 'reports:report-diaperchange-types-child' object.slug %}">{% trans "Diaper Change Types" %}</a>
             <a class="dropdown-item" href="{% url 'reports:report-diaperchange-lifetimes-child' object.slug %}">{% trans "Diaper Lifetimes" %}</a>
@@ -34,7 +34,7 @@
     {% if perms.core.delete_child %}
         <a class="btn btn-danger"
            href="{% url 'core:child-delete' object.slug %}"
-           role="button"><i class="icon icon-delete" aria-hidden="true"></i></a>
+           role="button"><i class="icon-r icon-delete" aria-hidden="true"></i></a>
     {% endif %}
 
 </div>

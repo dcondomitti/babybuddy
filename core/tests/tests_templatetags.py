@@ -9,10 +9,10 @@ class TemplateTagsTestCase(TestCase):
     def test_bootstrap_bool_icon(self):
         self.assertEqual(
             bootstrap.bool_icon(True),
-            '<i class="icon icon-true text-success" aria-hidden="true"></i>')
+            '<i class="icon-r icon-true text-success" aria-hidden="true"></i>')
         self.assertEqual(
             bootstrap.bool_icon(False),
-            '<i class="icon icon-false text-danger" aria-hidden="true"></i>')
+            '<i class="icon-r icon-false text-danger" aria-hidden="true"></i>')
 
     def test_duration_duration_string(self):
         delta = timezone.timedelta(hours=1, minutes=30, seconds=15)

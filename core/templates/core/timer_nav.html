@@ -6,13 +6,13 @@
        href="#"
        data-toggle="dropdown"
        aria-haspopup="true"
-       aria-expanded="false"><i class="icon icon-timer" aria-hidden="true"></i>
+       aria-expanded="false"><i class="icon-r icon-timer" aria-hidden="true"></i>
         {% trans "Timers" %}
     </a>
     <div class="dropdown-menu" aria-labelledby="nav-timer-menu-link">
         {% if perms.core.add_timer %}
             <a class="dropdown-item" href="{% url 'core:timer-add-quick' %}">
-                <i class="icon icon-timer" aria-hidden="true"></i> {% trans "Quick Start Timer" %}
+                <i class="icon-r icon-timer" aria-hidden="true"></i> {% trans "Quick Start Timer" %}
             </a>
             <a class="dropdown-item" href="{% url 'core:timer-add' %}">
                 <i class="icon icon-add" aria-hidden="true"></i> {% trans "Start Timer" %}
