@@ -13,15 +13,6 @@ class MedicationAdmin(admin.ModelAdmin):
 
 @admin.register(models.MedicationAdministration)
 class MedicationAdministrationAdmin(admin.ModelAdmin):
-    list_display = ('child', 'medication_event', 'date', 'time', 'administered')
-    list_filter = ('child', 'medication_event', 'date', 'administered')
+    list_display = ('child', 'date', 'time', 'administered')
+    list_filter = ('child', 'date', 'administered')
     search_fields = ('child__first_name', 'child__last_name')
-
-
-@admin.register(models.MedicationEvent)
-class MedicationEventAdmin(admin.ModelAdmin):
-    list_display = ('child', 'medication', 'dose', 'start_date', 'start_time',
-                    'recurring', 'recurring_type')
-    list_filter = ('child', 'medication', 'recurring')
-    search_fields = ('child__first_name', 'child__last_name',
-                     'medication__name')
