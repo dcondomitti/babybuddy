@@ -26,4 +26,19 @@ urlpatterns = [
         views.MedicationDelete.as_view(),
         name='medication-delete'
     ),
+    path(
+        'medications/schedules/add/',
+        views.MedicationRecurrenceAdd.as_view(),
+        name='medication_recurrence-add'
+    ),
+    path(
+        'medications/schedules/<int:pk>/',
+        views.MedicationRecurrenceUpdate.as_view(),
+        name='medication_recurrence-update'
+    ),
+    path(
+        'medications/schedules/<int:pk>/delete/',
+        views.MedicationRecurrenceDelete.as_view(),
+        name='medication_recurrence-delete'
+    ),
 ]

@@ -1,0 +1,37 @@
+{% extends 'babybuddy/page.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% if request.resolver_match.url_name == 'medication_recurrence-update' %}
+        {% trans "Update a Medication Schedule" %}
+    {% else %}
+        {% trans "Add a Medication Schedule" %}
+    {% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <li class="breadcrumb-item"><a href="{% url 'health:medication-list' %}">{% trans "Medications" %}</a></li>
+    <li class="breadcrumb-item">Schedules</li>
+    {% if object %}
+        <li class="breadcrumb-item active" aria-current="page">{% trans "Update" %}</li>
+    {% else %}
+        <li class="breadcrumb-item active" aria-current="page">{% trans "Add" %}</li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if object %}
+        {% blocktrans %}<h1>Update <span class="text-info">{{ object }}</span></h1>{% endblocktrans %}
+    {% else %}
+        <h1>{% trans "Add a Medication Schedule" %}</h1>
+    {% endif %}
+    {% include 'babybuddy/form.html' %}
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        // django-recurrence requires django.jQuery to exist.
+        django.jQuery = jQuery.noConflict(true);
+    </script>
+    {{ form.media }}
+{% endblock %}

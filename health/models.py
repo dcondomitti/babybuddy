@@ -2,6 +2,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from recurrence.fields import RecurrenceField
+
 
 class Medication(models.Model):
     model_name = 'medication'
@@ -64,3 +66,30 @@ class MedicationAdministration(models.Model):
 
     def __str__(self):
         return str(_('Medication administration'))
+
+
+class MedicationRecurrence(models.Model):
+    model_name = 'medication_recurrence'
+    child = models.ForeignKey(
+        'core.Child',
+        on_delete=models.CASCADE,
+        related_name='medication_recurrence',
+        verbose_name=_('Child')
+    )
+    medication = models.ForeignKey(
+        'Medication',
+        on_delete=models.CASCADE,
+        related_name='medication_recurrence',
+        verbose_name=_('Medication')
+    )
+    recurrence = RecurrenceField()
+
+    objects = models.Manager()
+
+    class Meta:
+        default_permissions = ('view', 'add', 'change', 'delete')
+        verbose_name = _('Medication recurrence')
+        verbose_name_plural = _('Medication recurrence')
+
+    def __str__(self):
+        return str(_('Medication recurrence'))
