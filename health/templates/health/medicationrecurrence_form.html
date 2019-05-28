@@ -28,10 +28,10 @@
     {% include 'babybuddy/form.html' %}
 {% endblock %}
 
+{% block css %}
+    {{ form.media.css }}
+{% endblock %}
+
 {% block javascript %}
-    <script type="text/javascript">
-        // django-recurrence requires django.jQuery to exist.
-        django.jQuery = jQuery.noConflict(true);
-    </script>
-    {{ form.media }}
+    {{ form.media.js }}
 {% endblock %}

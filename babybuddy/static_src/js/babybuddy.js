@@ -10,3 +10,7 @@ var BabyBuddy = function () {
     var BabyBuddy = {};
     return BabyBuddy;
 }();
+
+/* Some dependencies (e.g. django-recurrence) require django.jQuery. */
+var django = django || {};
+django.jQuery = jQuery.noConflict(true);
