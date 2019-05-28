@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'easy_thumbnails',
     'storages',
+    'recurrence',
 
     'django.contrib.admin',
     'django.contrib.auth',
