@@ -82,7 +82,9 @@ class MedicationRecurrence(models.Model):
         related_name='medication_recurrence',
         verbose_name=_('Medication')
     )
-    recurrence = RecurrenceField()
+    recurrence = RecurrenceField(
+        verbose_name=_('Schedule')
+    )
 
     objects = models.Manager()
 
