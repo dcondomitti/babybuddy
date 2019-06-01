@@ -35,7 +35,10 @@
             {{ field|add_class:"custom-select" }}
         {% endif %}
     {% elif field|field_type == "recurrencefield" %}
-        {{ field }}
+        {# The .recurrence-field wrapper is used for targetting stlye overrides. #}
+        <div class="recurrence-field">
+            {{ field }}
+        </div>
     {% else %}
         {% if field.errors %}
             {{ field|add_class:"form-control is-invalid" }}

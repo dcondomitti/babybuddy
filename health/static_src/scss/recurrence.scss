@@ -1,7 +1,44 @@
-div.recurrence-widget {
-  a {
-    &.recurrence-label {
-      color: $white;
+.recurrence-field {
+  border-color: theme-color('light');
+
+  .recurrence-widget {
+    a {
+      &.recurrence-label {
+        color: theme-color('light');
+      }
+    }
+
+    .control {
+      .add-date {
+        border-left: none;
+        padding-left: inherit;
+      }
+    }
+
+    .add-button {
+      @extend .btn, .btn-sm, .btn-success;
+      color: inherit;
+
+      &:link,
+      &:visited {
+        color: inherit;
+      }
+    }
+
+    .grid {
+      td {
+        color: $gray-600;
+
+        &.active {
+          background-color: $component-active-bg;
+          color: $component-active-color;
+        }
+      }
     }
   }
 }
+
+.recurrence-calendar {
+  color: theme-color('dark');
+}
+
