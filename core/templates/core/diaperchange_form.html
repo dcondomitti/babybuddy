@@ -29,8 +29,8 @@
 
 {% block javascript %}
     <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker_time').datetimepicker({
+        django.jQuery(function () {
+            django.jQuery('#datetimepicker_time').datetimepicker({
                 defaultDate: 'now',
                 format: 'YYYY-MM-DD HH:mm'
             });

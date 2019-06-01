@@ -50,4 +50,4 @@ BabyBuddy.Dashboard = function ($) {
     };
 
     return Dashboard;
-}(jQuery);
+}(django.jQuery);

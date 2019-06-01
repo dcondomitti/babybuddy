@@ -30,8 +30,8 @@
 
 {% block javascript %}
     <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker_birth_date').datetimepicker({
+        django.jQuery(function () {
+            django.jQuery('#datetimepicker_birth_date').datetimepicker({
                 viewMode: 'years',
                 format: 'YYYY-MM-DD'
             });

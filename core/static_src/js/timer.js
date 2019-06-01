@@ -15,7 +15,7 @@ BabyBuddy.Timer = function ($) {
     var Timer = {
         run: function(timer_id, element_id) {
             timerId = timer_id;
-            timerElement = $('#' + element_id);
+            timerElement = django.jQuery('#' + element_id);
 
             if (timerElement.length == 0) {
                 console.error('BBTimer: Timer element not found.');
