@@ -7,10 +7,10 @@
  *  * timer-hours
  */
 BabyBuddy.Timer = function ($) {
+    var lastUpdate = moment();
     var runIntervalId = null;
     var timerId = null;
     var timerElement = null;
-    var lastUpdate = moment();
 
     var Timer = {
         run: function(timer_id, element_id) {
@@ -18,7 +18,7 @@ BabyBuddy.Timer = function ($) {
             timerElement = django.jQuery('#' + element_id);
 
             if (timerElement.length == 0) {
-                console.error('BBTimer: Timer element not found.');
+                console.error('Baby Buddy: Timer element not found.');
                 return false;
             }
 
@@ -34,11 +34,7 @@ BabyBuddy.Timer = function ($) {
             // If the page just came in to view, update the timer data with the
             // current actual duration. This will (potentially) help mobile
             // phones that lock with the timer page open.
-            Visibility.change(function (e, state) {
-                if (state == 'visible' && moment().diff(lastUpdate) > 2000) {
-                    Timer.update();
-                }
-            });
+            Timer.watch(element_id);
         },
 
         tick: function() {
@@ -67,6 +63,23 @@ BabyBuddy.Timer = function ($) {
             h.text(hours + 1);
         },
 
+        watch: function(element_id) {
+            if (typeof window.addEventListener != "undefined") {
+                timerElement = django.jQuery('#' + element_id);
+                if (timerElement.length == 0) {
+                    console.error('Baby Buddy: Timer element not found.');
+                    return false;
+                }
+                window.addEventListener('focus', Timer.handleVisibilityChange, false);
+            }
+        },
+
+        handleVisibilityChange: function() {
+            if (moment().diff(lastUpdate) > 2000) {
+                Timer.update();
+            }
+        },
+
         update: function() {
             $.get('/api/timers/' + timerId + '/', function(data) {
                 if (data && 'duration' in data) {
@@ -89,4 +102,4 @@ BabyBuddy.Timer = function ($) {
     };
 
     return Timer;
-}(jQuery);
+}(django.jQuery);
