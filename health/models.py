@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from recurrence.fields import RecurrenceField
@@ -82,6 +83,18 @@ class MedicationRecurrence(models.Model):
         related_name='medication_recurrence',
         verbose_name=_('Medication')
     )
+    start = models.DateField(
+        blank=False,
+        default=timezone.now,
+        null=False,
+        verbose_name=_('Start date')
+    )
+    time = models.TimeField(
+        blank=False,
+        default=timezone.now,
+        null=False,
+        verbose_name=_('Alert time')
+    )
     recurrence = RecurrenceField(
         verbose_name=_('Schedule')
     )
@@ -90,8 +103,8 @@ class MedicationRecurrence(models.Model):
 
     class Meta:
         default_permissions = ('view', 'add', 'change', 'delete')
-        verbose_name = _('Medication recurrence')
-        verbose_name_plural = _('Medication recurrence')
+        verbose_name = _('Medication schedule')
+        verbose_name_plural = _('Medication schedules')
 
     def __str__(self):
-        return str(_('Medication recurrence'))
+        return str(_('Medication schedule'))

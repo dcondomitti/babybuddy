@@ -45,7 +45,7 @@ class MedicationRecurrenceAdd(CoreAddView):
 class MedicationRecurrenceUpdate(CoreUpdateView):
     model = models.MedicationRecurrence
     permission_required = ('health.change_medication_recurrence',)
-    fields = ['child', 'medication', 'recurrence']
+    fields = ['child', 'medication', 'start', 'time', 'recurrence']
     success_url = reverse_lazy('health:medication-list')
 
 

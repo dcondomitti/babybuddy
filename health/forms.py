@@ -13,4 +13,4 @@ class MedicationForm(forms.ModelForm):
 class MedicationRecurrenceForm(forms.ModelForm):
     class Meta:
         model = models.MedicationRecurrence
-        fields = ['child', 'medication', 'recurrence']
+        fields = ['child', 'medication', 'start', 'time', 'recurrence']

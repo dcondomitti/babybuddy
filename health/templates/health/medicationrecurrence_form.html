@@ -33,5 +33,17 @@
 {% endblock %}
 
 {% block javascript %}
+    <script type="text/javascript">
+        django.jQuery(function () {
+            django.jQuery('#datetimepicker_start').datetimepicker({
+                defaultDate: 'now',
+                format: 'YYYY-MM-DD'
+            });
+            django.jQuery('#datetimepicker_time').datetimepicker({
+                defaultDate: 'now',
+                format: 'HH:mm'
+            });
+        });
+    </script>
     {{ form.media.js }}
 {% endblock %}
