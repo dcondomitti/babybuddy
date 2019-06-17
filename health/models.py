@@ -103,6 +103,7 @@ class MedicationRecurrence(models.Model):
 
     class Meta:
         default_permissions = ('view', 'add', 'change', 'delete')
+        ordering = ['-start']
         verbose_name = _('Medication schedule')
         verbose_name_plural = _('Medication schedules')
 

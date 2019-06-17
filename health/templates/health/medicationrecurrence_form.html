@@ -11,7 +11,7 @@
 
 {% block breadcrumbs %}
     <li class="breadcrumb-item"><a href="{% url 'health:medication-list' %}">{% trans "Medications" %}</a></li>
-    <li class="breadcrumb-item">Schedules</li>
+    <li class="breadcrumb-item"><a href="{% url 'health:medication_recurrence-list' %}">{% trans "Schedules" %}</a></li>
     {% if object %}
         <li class="breadcrumb-item active" aria-current="page">{% trans "Update" %}</li>
     {% else %}

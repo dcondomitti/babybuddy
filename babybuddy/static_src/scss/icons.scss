@@ -22,6 +22,14 @@
     @extend .fa-plus;
 }
 
+.icon-calendar {
+    @extend .fa-calendar-alt;
+}
+
+.icon-calendar-add {
+    @extend .fa-calendar-plus;
+}
+
 .icon-camera {
     @extend .fa-camera;
 }

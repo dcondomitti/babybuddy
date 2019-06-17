@@ -60,4 +60,10 @@
         </a>
     {% endif %}
 
+    {% if perms.health.view_medication_recurrence %}
+        <a href="{% url 'health:medication_recurrence-list' %}" class="btn btn-sm btn-primary">
+            <i class="icon icon-calendar" aria-hidden="true"></i> {% trans "Medication Schedules" %}
+        </a>
+    {% endif %}
+
 {% endblock %}

@@ -27,6 +27,11 @@ urlpatterns = [
         name='medication-delete'
     ),
     path(
+        'medications/schedules/',
+        views.MedicationRecurrenceList.as_view(),
+        name='medication_recurrence-list'
+    ),
+    path(
         'medications/schedules/add/',
         views.MedicationRecurrenceAdd.as_view(),
         name='medication_recurrence-add'

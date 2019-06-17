@@ -142,6 +142,12 @@
                                 {% trans "Medications" %}
                             </a>
                         {% endif %}
+                        {% if perms.health.view_medication_recurrence %}
+                            <a class="dropdown-item pl-5{% if request.path == '/medications/schedules/' %} active{% endif %}"
+                               href="{% url 'health:medication_recurrence-list' %}"><i class="icon icon-calendar" aria-hidden="true"></i>
+                                {% trans "Schedules" %}
+                            </a>
+                        {% endif %}
                         {% if perms.health.add_medication %}
                             <a class="dropdown-item pl-5{% if request.path == '/medications/add/' %} active{% endif %}"
                                href="{% url 'health:medication-add' %}"><i class="icon icon-add" aria-hidden="true"></i>
