@@ -7,6 +7,7 @@ var pump = require('pump');
 var sass = require('gulp-sass');
 var sassGlob = require('gulp-sass-glob');
 var sassLint = require('gulp-sass-lint');
+var tildeImporter = require('node-sass-tilde-importer');
 var spawn = require('child_process').spawn;
 
 var config = require('./gulpfile.config.js');
@@ -68,7 +69,9 @@ function styles(cb) {
     pump([
         gulp.src(config.stylesConfig.app),
         sassGlob({ignorePaths: config.stylesConfig.ignore}),
-        sass().on('error', sass.logError),
+        sass({
+            importer: tildeImporter
+        }).on('error', sass.logError),
         concat('app.css'),
         gulp.dest(config.stylesConfig.dest)
     ], cb);
