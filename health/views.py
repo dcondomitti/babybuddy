@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from django.urls import reverse_lazy
-from django.utils.translation import gettext as _
 
 from babybuddy.mixins import PermissionRequired403Mixin
 from babybuddy.views import BabyBuddyFilterView
@@ -36,7 +35,8 @@ class MedicationDelete(CoreDeleteView):
     success_url = reverse_lazy('health:medication-list')
 
 
-class MedicationRecurrenceList(PermissionRequired403Mixin, BabyBuddyFilterView):
+class MedicationRecurrenceList(PermissionRequired403Mixin,
+                               BabyBuddyFilterView):
     model = models.MedicationRecurrence
     template_name = 'health/medicationrecurrence_list.html'
     permission_required = ('health.view_medication_recurrence',)

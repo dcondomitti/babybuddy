@@ -100,6 +100,7 @@ function lint(cb) {
             rules: {
                 'declarations-before-nesting': 1,
                 'indentation': [ 1, { 'size': 4 } ],
+                'nesting-depth': 3,
                 'no-ids': 0,
                 'no-vendor-prefixes': 2,
                 'placeholder-in-extend': 0,
