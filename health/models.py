@@ -36,6 +36,13 @@ class Medication(models.Model):
 
 class MedicationAdministration(models.Model):
     model_name = 'medication_administration'
+    recurrence = models.ForeignKey(
+        'health.MedicationRecurrence',
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='medication_administration',
+        verbose_name=_('Schedule')
+    )
     child = models.ForeignKey(
         'core.Child',
         on_delete=models.CASCADE,
@@ -97,6 +104,10 @@ class MedicationRecurrence(models.Model):
     )
     recurrence = RecurrenceField(
         verbose_name=_('Schedule')
+    )
+    complete = models.BooleanField(
+        default=False,
+        verbose_name=_('Complete')
     )
 
     objects = models.Manager()
