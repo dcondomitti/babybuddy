@@ -7,18 +7,31 @@ from health.models import MedicationRecurrence as MR
 
 
 class MedicationNotificationsMiddleware(object):
+    """Add "medication_notifications" context data to the template response.
+    This data will be used to set frontend notifications for the user about due
+    (and past due) medications based on MedicationRecurrent and
+    MedicationAdministration objects."""
+
     def __init__(self, get_response):
         self.get_response = get_response
-        self.dtend = timezone.localtime()
 
     def __call__(self, request):
+        self.dtend = timezone.localtime()
+        self.notifications = []
+
+        response = self.get_response(request)
+
+        return response
+
+    def process_template_response(self, request, response):
+        # TODO: Cache the results of this process and bust on new MA objects.
         schedules = MR.objects.filter(complete=False).filter(
             start__lte=timezone.localdate())
 
         for schedule in schedules:
             self.set_notifications(schedule)
 
-        response = self.get_response(request)
+        response.context_data['medication_notifications'] = self.notifications
 
         return response
 
@@ -33,5 +46,4 @@ class MedicationNotificationsMiddleware(object):
                 recurrence=schedule, date=date.date(),
                 administered=True).first()
             if admin is None:
-                # TODO: Alert user, cache status until new MA added.
-                print('TODO')
+                self.notifications.append([schedule, date])
