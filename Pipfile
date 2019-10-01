@@ -21,6 +21,7 @@ easy-thumbnails = "*"
 python-dotenv = "*"
 django-storages = "*"
 boto3 = "*"
+mysqlclient = "*"
 
 
 [dev-packages]
